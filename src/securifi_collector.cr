@@ -164,8 +164,8 @@ rescue e
   transporter_timeout = 300 # timeout use to wait for next try for transporter module. 
 end
 begin
-  if settings_yaml["bindquery"]["time_adjustment"]?
-      time_adjustment = settings_yaml["bindquery"]["time_adjustment"].as_i
+  if settings_yaml["securifi_collector"]["time_adjustment"]?
+      time_adjustment = settings_yaml["securifi_collector"]["time_adjustment"].as_i
   else
       puts "Invalid value for time_adjustment, accept interger. Using default option [1]"
       time_adjustment = 1
