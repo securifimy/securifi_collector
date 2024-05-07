@@ -218,7 +218,7 @@ rescue e
 end
 
 ## configure batch processing query from setting_yaml
-unless querylog_size.nil?
+if querylog_size.nil?
   begin
       if settings_yaml["securifi_collector"]["querylog_size"]?
         querylog_size = settings_yaml["securifi_collector"]["querylog_size"].as_i
