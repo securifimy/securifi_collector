@@ -221,7 +221,7 @@ end
 unless querylog_size.nil?
   begin
       if settings_yaml["securifi_collector"]["querylog_size"]?
-        querylog_size = settings_yaml["securifi_collector"]["querylog_size"]
+        querylog_size = settings_yaml["securifi_collector"]["querylog_size"].as_i
       else
           puts "Invalid value for querylog_size, accept interget. Using default value [1000]"
           querylog_size = 1000
