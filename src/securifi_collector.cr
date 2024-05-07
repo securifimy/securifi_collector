@@ -63,7 +63,7 @@ end
 
 ## securifi/adguard api endpoint configuration
 begin
-  if settings_yaml["securifi"]["api"]? && settings_yaml["securifi"]["api"]["host"]? && settings_yaml["securifi"]["api"]["ports"]? && settings_yaml["securifi"]["api"]["uri_path"]? && settings_yaml["securifi"]["api"]["username"]? && settings_yaml["securifi"]["api"]["password"]? && settings_yaml["securifi"]["api"]["secure"]?
+  if settings_yaml["securifi"]["api"]? && settings_yaml["securifi"]["api"]["host"]? && settings_yaml["securifi"]["api"]["port"]? && settings_yaml["securifi"]["api"]["uri_path"]? && settings_yaml["securifi"]["api"]["username"]? && settings_yaml["securifi"]["api"]["password"]? && settings_yaml["securifi"]["api"]["secure"]?
       api_host = settings_yaml["securifi"]["api"]["host"].as_s
       api_port = settings_yaml["securifi"]["api"]["port"].as_i
       api_uri_path = settings_yaml["securifi"]["api"]["uri_path"].as_s
@@ -76,14 +76,14 @@ begin
         api_url = "http://#{api_host}:#{api_port}#{api_uri_path}"
       end
   else
-       puts "Invalid settings for bind query log. exiting.."
+       puts "Invalid settings for securifi API. exiting.."
        exit 1
   end
 rescue e
   if info_log
       puts "Exception:#{e}"
   end
-  puts "Invalid settings for bind query log. exiting.."
+  puts "Invalid settings for securifi API. exiting.."
   exit 1
 end
 
