@@ -481,7 +481,7 @@ while true
         puts "[Worker] [Fiber #{cur_fiber_id}] Bucket end time #{time_bucket_end}"
 
         # Fetch JSON data from API.
-        api_response = Crest.get("#{api_url}", user: "#{api_username}", pass: "#{api_password}", params: { "limit" => "#{querylog_size}" }, json: true)
+        api_response = Crest.get("#{api_url}", user: "#{api_username}", pass: "#{api_password}", params: { "limit" => "#{querylog_size}" }, json: true, tls: OpenSSL::SSL::Context::Client.insecure)
 
         puts api_response
         # if File.file?("#{query_log_path}")
