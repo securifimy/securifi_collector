@@ -23,7 +23,7 @@ require "yaml"
 require "json"
 require "geoip2"
 require "digest/md5"
-require "crest"
+require "halite"
 
 
 # Variable Declaration
@@ -481,9 +481,9 @@ while true
         puts "[Worker] [Fiber #{cur_fiber_id}] Bucket end time #{time_bucket_end}"
 
         # Fetch JSON data from API.
-        api_response = Crest.get("#{api_url}", user: "#{api_username}", pass: "#{api_password}", params: { "limit" => "#{querylog_size}" }, json: true, tls: OpenSSL::SSL::Context::Client.insecure)
+        query_log_data = Halite.basic_auth(user: "#{api_username}", pass: "#{api_password}").get("#{api_url}",params: { "limit" => "#{querylog_size}" })
 
-        puts api_response
+        puts query_log_data
         # if File.file?("#{query_log_path}")
         #     data = {} of String => Hash(String,Hash(String, Hash(String, String) | Int64))
         #     File.each_line("#{query_log_path}") do |line|

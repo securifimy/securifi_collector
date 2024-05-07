@@ -9,8 +9,8 @@ targets:
     main: src/securifi_collector.cr
 
 dependencies:
-  crest:
-    github: mamantoha/crest
+  halite:
+    github: icyleaf/halite
   geoip2:
     github: delef/geoip2.cr
   granite:
