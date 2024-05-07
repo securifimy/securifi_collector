@@ -481,7 +481,7 @@ while true
         puts "[Worker] [Fiber #{cur_fiber_id}] Bucket end time #{time_bucket_end}"
 
         # Fetch JSON data from API.
-        query_log_data = Halite.basic_auth(user: "#{api_username}", pass: "#{api_password}").get("#{api_uri_path}",params: { "orlder_than" => fiber_start, "limit" => "#{querylog_size}" })
+        query_log_data = Halite.basic_auth(user: "#{api_username}", pass: "#{api_password}").get("#{api_url}",params: { "limit" => "#{querylog_size}" })
 
         puts query_log_data
         # if File.file?("#{query_log_path}")
