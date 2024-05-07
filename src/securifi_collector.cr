@@ -131,6 +131,7 @@ rescue e
       Dir.mkdir("#{Dir.current}/securifi_collector_save/")
   end
   save_path = "#{Dir.current}/securifi_collector_save/"
+  puts "Using current directory as the default save path.[#{save_path}]"
 end
 
 ## configure time setting from settings_yaml
