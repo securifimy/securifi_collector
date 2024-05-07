@@ -1,0 +1,30 @@
+version: 2.0
+shards:
+  db:
+    git: https://github.com/crystal-lang/crystal-db.git
+    version: 0.11.0
+
+  geoip2:
+    git: https://github.com/delef/geoip2.cr.git
+    version: 0.5.3
+
+  granite:
+    git: https://github.com/amberframework/granite.git
+    version: 0.23.3
+
+  halite:
+    git: https://github.com/icyleaf/halite.git
+    version: 0.12.1
+
+  ipaddress:
+    git: https://github.com/sija/ipaddress.cr.git
+    version: 0.2.3
+
+  maxminddb:
+    git: https://github.com/delef/maxminddb.cr.git
+    version: 1.5.0
+
+  pg:
+    git: https://github.com/will/crystal-pg.git
+    version: 0.26.0
+

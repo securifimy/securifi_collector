@@ -1,0 +1,23 @@
+name: securifi_collector
+version: 0.1.0
+
+authors:
+  - emanzx <emanzx@gmail.com>
+
+targets:
+  securifi_collector:
+    main: src/securifi_collector.cr
+
+dependencies:
+  halite:
+    github: icyleaf/halite
+  geoip2:
+    github: delef/geoip2.cr
+  granite:
+    github: amberframework/granite
+  pg:
+    github: will/crystal-pg
+
+crystal: '>= 1.12.1'
+
+license: MIT
