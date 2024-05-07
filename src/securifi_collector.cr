@@ -469,16 +469,21 @@ while true
     # Spawn a fiber to do the processing based on the time bucket calculated.
     puts "[Distributer] Spawning new worker fiber."
     spawn do
-        # log_line = 0
-        # process_line = 0
-        # bad_log_line = 0
-        # unknown_log_line = 0
-        # fiber_id += 1
-        # cur_fiber_id = fiber_id
-        # fiber_start = Time.local
-        # puts "[Worker] Curent time Fiber[#{cur_fiber_id}] start #{fiber_start}"
-        # puts "[Worker] [Fiber #{cur_fiber_id}] Bucket start time #{time_bucket_start}"
-        # puts "[Worker] [Fiber #{cur_fiber_id}] Bucket end time #{time_bucket_end}"
+        log_line = 0
+        process_line = 0
+        bad_log_line = 0
+        unknown_log_line = 0
+        fiber_id += 1
+        cur_fiber_id = fiber_id
+        fiber_start = Time.local
+        puts "[Worker] Curent time Fiber[#{cur_fiber_id}] start #{fiber_start}"
+        puts "[Worker] [Fiber #{cur_fiber_id}] Bucket start time #{time_bucket_start}"
+        puts "[Worker] [Fiber #{cur_fiber_id}] Bucket end time #{time_bucket_end}"
+
+        # Fetch JSON data from API.
+        query_log_data = Halite.basic_auth(user: "#{api_username}", pass: "#{api_password}").get("#{api_uri_path}",params: { "orlder_than" => fiber_start, "limit" => "#{querylog_size}" })
+
+        puts query_log_data
         # if File.file?("#{query_log_path}")
         #     data = {} of String => Hash(String,Hash(String, Hash(String, String) | Int64))
         #     File.each_line("#{query_log_path}") do |line|
